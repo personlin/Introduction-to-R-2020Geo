@@ -1,0 +1,279 @@
+---
+title: "中華民國地球物理學會與中華民國地質學會109年年會暨學術研討會-R程式語言介紹"
+subtitle: "R程式語言之地科應用"
+author: "林柏伸"
+institute: "財團法人中興工程顧問社<br/>防災科技研究中心"
+date: "2020/11/17"
+output:
+  xaringan::moon_reader:
+    css: [default, zh-CN.css]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+    seal: false
+---
+
+class: inverse, center, middle
+background-image: url(https://live.staticflickr.com/2834/10119341476_e3a831e967_k.jpg)
+background-size: cover
+
+### 中華民國地球物理學會與中華民國地質學會<br/>109年年會暨學術研討會-R程式語言介紹
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+# R程式語言之地科應用
+
+<img src="https://www.sinotech.org.tw/zh/Modules/SinotechMenu/images/banner.png" style="background-color:white;padding:10px;"/>
+<img src="http://www.cgs.org.tw/image/logo.jpg" alt="CGS logo" height="65" style="background-color:white;" />
+
+.large[林柏伸 | 財團法人中興工程顧問社防災科技研究中心 | 17 Nov 2020]
+---
+
+# 學習R的理由
+
+--
+
+- 免錢(Free)
+
+--
+
+- 開放原始碼(Open Source)
+
+--
+
+- 跨平台，可以跑在Windows、Mac、Linux
+
+--
+
+- 搭上現在最夯的話題：Data Science、Big data...
+
+當然，你也可以學JAVA、C、Python...但我個人用R，所以我首推R (Python次之)。
+
+--
+
+- 用RStudio寫R很爽～～～
+
+.center[![](https://www.rstudio.com/wp-content/uploads/2019/03/RStudio-Logo-Blue-Gray-125.png)]
+
+--
+
+當然，RStudio也是免錢+開放原始碼
+
+---
+
+# 2020程式語言的排名
+
+.pull-left[
+
+#### TIOBE (Top 9!)
+
+<a href="https://www.tiobe.com/tiobe-index/"><img src="Tiobe_language_rank_202011.jpg" alt="Tiobe" height="300"/></a>
+
+]
+
+
+.pull-right[
+
+#### IEEE Spectrum (Top 6!)
+
+![IEEE Spectrum](IEEE_Spectrum_top_language_2020.jpeg)
+
+]
+---
+
+# R的相關網頁
+- [官方網頁https://www.r-project.org/](https://www.r-project.org/) 直接google "r"第一個結果就是!
+- [RStudio](https://www.rstudio.com/) 寫R必備的IDE工具，找不到更好的了！
+    - [rmarkdown](http://rmarkdown.rstudio.com/) R寫文件
+    - [shiny](http://shiny.rstudio.com/) RStudio開發出來的架構，可以用R開發網頁應用。
+    - [Rpubs](https://rpubs.com/) 用R寫出來的文件可以丟到上面分享。
+- [RDocumentation](http://www.rdocumentation.org/) 搜尋R package & function 的好地方！！
+- [R Weekly](https://rweekly.org/) R週報，吸收R新知的地方！(__推推！__)
+- [R-blogger](https://www.r-bloggers.com/) 另一個吸收R新知的地方
+- [Awesome R](https://awesome-r.com/) A curated list of awesome R packages and tools.
+
+---
+
+# USGS也用R
+
+- [USGS-R 社群網頁](https://owi.usgs.gov/R/)
+- [USGS-R Github](https://github.com/USGS-R)
+
+<a href="https://owi.usgs.gov/R/"><img src="https://owi.usgs.gov/R/img/usgs-r-logo.png"></a>
+
+
+---
+
+# 台灣的R社群
+
+- [Taiwan R User Group/MLDM Monday](https://www.meetup.com/Taiwan-R/)
+
+<img src="600_260721512.jpeg" alt="Taiwan R User Group" width="180"/>
+
+- [R-LADIES TAIPEI](https://rladiestaipei.github.io/R-Ladies-Taipei/)
+
+<img src="https://rladiestaipei.github.io/R-Ladies-Taipei/img/profile.png" alt="R-Ladies img" width="180"/>
+
+---
+
+# 如何學習R
+
+- [Yongfu's Blog-我的R學習歷程](https://yongfu.name/2018/01/31/RlearningPath.html)
+- [長庚大學資訊管理學系-曾意儒-資料科學與R語言](https://yijutseng.github.io/DataScienceRBook/)
+- [郭耀仁- 輕鬆學習R語言](https://yaojenkuo.gitbooks.io/learn-r-the-easy-way/content/)
+- [R語言翻轉教室-全中文R語言互動式教材](https://datascienceandr.org/index.html)
+- [R Class for Seismologists](http://mazamascience.com/Classes/IRIS_2015/)
+- [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
+
+---
+
+# 學習R的管道
+
+- [Coursera線上課程](https://www.coursera.org/)
+
+    英文發音但是有中文字幕！重點是不只有R的課程可以學，還有各式各樣的課程可以學習，連台大都有老師把課程放上去。(極推！)
+    
+- [stackoverflow](http://stackoverflow.com/questions/tagged/r)
+
+    寫程式的時候遇到問題都可以來這裡找答案！
+
+---
+
+# 進階了解R
+
+- [Advanced R](http://adv-r.had.co.nz/) 
+
+    R的神級高手Hadley Wickham[(個人網頁)](http://hadley.nz/)寫的，他目前在RStudio服務，寫了很多很厲害的package，如果可以把他寫的package都搞熟了，那差不多可以是半個神人了。
+
+- [The tidyverse](http://tidyverse.org/) 
+
+<a href="http://dplyr.tidyverse.org"><img src="http://dplyr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://forcats.tidyverse.org"><img src="http://forcats.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://ggplot2.tidyverse.org"><img src="http://ggplot2.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://haven.tidyverse.org"><img src="http://haven.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://lubridate.tidyverse.org"><img src="http://lubridate.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://magrittr.tidyverse.org"><img src="http://magrittr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://purrr.tidyverse.org"><img src="http://purrr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://readr.tidyverse.org"><img src="http://readr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://readxl.tidyverse.org"><img src="http://readxl.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://stringr.tidyverse.org"><img src="http://stringr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://tibble.tidyverse.org"><img src="https://github.com/tidyverse/tibble/raw/master/man/figures/logo.png" width="100" height="109"></a><a href="http://tidyr.tidyverse.org"><img src="http://tidyr.tidyverse.org/logo.png" width="100" height="109"></a><a href="http://tidyverse.tidyverse.org"><img src="http://tidyverse.tidyverse.org/logo.png" width="100" height="109"></a>
+
+---
+class: inverse, middle, center
+
+# 讓我們來看看R的擴充套件
+
+---
+
+# R packages 套件列表
+
+目前R共有 __16573__ 個套件在CRAN套件庫
+
+- [按照套件名稱排序的列表](https://cran.r-project.org/web/packages/available_packages_by_name.html)
+- [按照主題分類的套件列表](https://cran.r-project.org/web/views/)
+    - [化學計量學與計算物理學 Chemometrics and Computational Physics](https://cran.r-project.org/web/views/ChemPhys.html)
+    - [水文學 Hydrology](https://cran.r-project.org/web/views/Hydrology.html)
+    - [空間分析 Analysis of Spatial Data](https://cran.r-project.org/web/views/Spatial.html)
+    - [時空資料分析 Spatio-Temporal](https://cran.r-project.org/web/views/SpatioTemporal.html)
+    - [時序分析 Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html)
+
+---
+
+# R地科相關應用套件
+
+- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+
+- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](http://www.unc.edu/~leesj/FETCH/GRAB/Vignettes/whyRbeam.pdf)
+
+- [Statistical Seismology Library](http://homepages.maxnet.co.nz/davidharte/SSLib/) 地震統計學
+
+- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html)
+
+- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html)
+
+- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra)
+
+- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/)
+
+---
+
+# 地震相關套件
+
+- [IRISSeismic: Classes and Methods for Seismic Data Analysis](https://cran.r-project.org/package=IRISSeismic)
+
+- [RSEIS: Seismic Time Series Analysis Tools](https://cran.r-project.org/package=RSEIS)
+
+- [eseis: Environmental Seismology Toolbox](https://cran.r-project.org/package=eseis)
+---
+
+# 特別介紹
+- Jonathan M. Lees
+- Professor, Department Chair, Department of Geological Sciences, University of North Carolina at Chapel Hill
+- [個人網頁https://leesj.sites.oasis.unc.edu/](https://leesj.sites.oasis.unc.edu/)
+- 開發的套件
+    - RSEIS:Seismic Analysis, Time Series
+    - GEOmap:Geological Mapping, GIS
+    - ProfessR:Create Exams, Grading
+    - RFOC:Focal Mechanisms, statistics on a sphere
+    - RPMG:Really Poor Man's GUI
+    - zoeppritz:scattering at an interface
+    - RTOMO:visualization of tomographic inversions 
+
+---
+
+
+---
+# R還可以...
+- 使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
+- [devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
+- [knitr](https://yihui.name/knitr/)、[rmarkdown](https://rmarkdown.rstudio.com/)建立報告、簡報、網站
+- [knitr](https://yihui.name/knitr/)、[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
+- [knitr](https://yihui.name/knitr/)、[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
+
+---
+class: center, middle
+
+# 希望大家會開始使用R語言
+
+## 從今天開始!!
+
+---
+class: center, middle
+
+# 謝謝！Thanks!
+
+<https://forms.gle/HkVcAkgPG6TXMDrA9>
+
+.pull-left[
+
+## 課後問卷 
+
+<img src="../qr-code_survey.png" alt="QR code" width="250"/>
+]
+
+.pull-right[
+
+### 填完可以...
+
+
+
+]
+
+Slides created via the R package xaringan.
+
+
+---
+
+# 歡迎加入R語言與地球科學
+
+.pull-left[
+
+## FB粉絲專頁
+
+<img src="qr-code_FB_RGeoscience.png" alt="QR code" width="300"/>
+]
+
+.pull-right[
+
+## Twitter
+
+<img src="qr-code_Twitter_RGeoscience.png" alt="QR code" width="300"/>
+
+]
+

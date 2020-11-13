@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>中華民國地球物理學會與中華民國地質學會109年年會暨學術研討會-R程式語言介紹</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="林柏伸" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+    <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+    <link rel="stylesheet" href="zh-CN.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+class: inverse, center, middle
+background-image: url(https://live.staticflickr.com/2834/10119341476_e3a831e967_k.jpg)
+background-size: cover
+
+### 中華民國地球物理學會與中華民國地質學會&lt;br/&gt;109年年會暨學術研討會-R程式語言介紹
+
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+&lt;br/&gt;
+
+# R程式語言之地科應用
+
+&lt;img src="https://www.sinotech.org.tw/zh/Modules/SinotechMenu/images/banner.png" style="background-color:white;padding:10px;"/&gt;
+&lt;img src="http://www.cgs.org.tw/image/logo.jpg" alt="CGS logo" height="65" style="background-color:white;" /&gt;
+
+.large[林柏伸 | 財團法人中興工程顧問社防災科技研究中心 | 17 Nov 2020]
+---
+
+# 學習R的理由
+
+--
+
+- 免錢(Free)
+
+--
+
+- 開放原始碼(Open Source)
+
+--
+
+- 跨平台，可以跑在Windows、Mac、Linux
+
+--
+
+- 搭上現在最夯的話題：Data Science、Big data...
+
+當然，你也可以學JAVA、C、Python...但我個人用R，所以我首推R (Python次之)。
+
+--
+
+- 用RStudio寫R很爽～～～
+
+.center[![](https://www.rstudio.com/wp-content/uploads/2019/03/RStudio-Logo-Blue-Gray-125.png)]
+
+--
+
+當然，RStudio也是免錢+開放原始碼
+
+---
+
+# 2020程式語言的排名
+
+.pull-left[
+
+#### TIOBE (Top 9!)
+
+&lt;a href="https://www.tiobe.com/tiobe-index/"&gt;&lt;img src="Tiobe_language_rank_202011.jpg" alt="Tiobe" height="300"/&gt;&lt;/a&gt;
+
+]
+
+
+.pull-right[
+
+#### IEEE Spectrum (Top 6!)
+
+![IEEE Spectrum](IEEE_Spectrum_top_language_2020.jpeg)
+
+]
+---
+
+# R的相關網頁
+- [官方網頁https://www.r-project.org/](https://www.r-project.org/) 直接google "r"第一個結果就是!
+- [RStudio](https://www.rstudio.com/) 寫R必備的IDE工具，找不到更好的了！
+    - [rmarkdown](http://rmarkdown.rstudio.com/) R寫文件
+    - [shiny](http://shiny.rstudio.com/) RStudio開發出來的架構，可以用R開發網頁應用。
+    - [Rpubs](https://rpubs.com/) 用R寫出來的文件可以丟到上面分享。
+- [RDocumentation](http://www.rdocumentation.org/) 搜尋R package &amp; function 的好地方！！
+- [R Weekly](https://rweekly.org/) R週報，吸收R新知的地方！(__推推！__)
+- [R-blogger](https://www.r-bloggers.com/) 另一個吸收R新知的地方
+- [Awesome R](https://awesome-r.com/) A curated list of awesome R packages and tools.
+
+---
+
+# USGS也用R
+
+- [USGS-R 社群網頁](https://owi.usgs.gov/R/)
+- [USGS-R Github](https://github.com/USGS-R)
+
+&lt;a href="https://owi.usgs.gov/R/"&gt;&lt;img src="https://owi.usgs.gov/R/img/usgs-r-logo.png"&gt;&lt;/a&gt;
+
+
+---
+
+# 台灣的R社群
+
+- [Taiwan R User Group/MLDM Monday](https://www.meetup.com/Taiwan-R/)
+
+&lt;img src="600_260721512.jpeg" alt="Taiwan R User Group" width="180"/&gt;
+
+- [R-LADIES TAIPEI](https://rladiestaipei.github.io/R-Ladies-Taipei/)
+
+&lt;img src="https://rladiestaipei.github.io/R-Ladies-Taipei/img/profile.png" alt="R-Ladies img" width="180"/&gt;
+
+---
+
+# 如何學習R
+
+- [Yongfu's Blog-我的R學習歷程](https://yongfu.name/2018/01/31/RlearningPath.html)
+- [長庚大學資訊管理學系-曾意儒-資料科學與R語言](https://yijutseng.github.io/DataScienceRBook/)
+- [郭耀仁- 輕鬆學習R語言](https://yaojenkuo.gitbooks.io/learn-r-the-easy-way/content/)
+- [R語言翻轉教室-全中文R語言互動式教材](https://datascienceandr.org/index.html)
+- [R Class for Seismologists](http://mazamascience.com/Classes/IRIS_2015/)
+- [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
+
+---
+
+# 學習R的管道
+
+- [Coursera線上課程](https://www.coursera.org/)
+
+    英文發音但是有中文字幕！重點是不只有R的課程可以學，還有各式各樣的課程可以學習，連台大都有老師把課程放上去。(極推！)
+    
+- [stackoverflow](http://stackoverflow.com/questions/tagged/r)
+
+    寫程式的時候遇到問題都可以來這裡找答案！
+
+---
+
+# 進階了解R
+
+- [Advanced R](http://adv-r.had.co.nz/) 
+
+    R的神級高手Hadley Wickham[(個人網頁)](http://hadley.nz/)寫的，他目前在RStudio服務，寫了很多很厲害的package，如果可以把他寫的package都搞熟了，那差不多可以是半個神人了。
+
+- [The tidyverse](http://tidyverse.org/) 
+
+&lt;a href="http://dplyr.tidyverse.org"&gt;&lt;img src="http://dplyr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://forcats.tidyverse.org"&gt;&lt;img src="http://forcats.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://ggplot2.tidyverse.org"&gt;&lt;img src="http://ggplot2.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://haven.tidyverse.org"&gt;&lt;img src="http://haven.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://lubridate.tidyverse.org"&gt;&lt;img src="http://lubridate.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://magrittr.tidyverse.org"&gt;&lt;img src="http://magrittr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://purrr.tidyverse.org"&gt;&lt;img src="http://purrr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://readr.tidyverse.org"&gt;&lt;img src="http://readr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://readxl.tidyverse.org"&gt;&lt;img src="http://readxl.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://stringr.tidyverse.org"&gt;&lt;img src="http://stringr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://tibble.tidyverse.org"&gt;&lt;img src="https://github.com/tidyverse/tibble/raw/master/man/figures/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://tidyr.tidyverse.org"&gt;&lt;img src="http://tidyr.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;&lt;a href="http://tidyverse.tidyverse.org"&gt;&lt;img src="http://tidyverse.tidyverse.org/logo.png" width="100" height="109"&gt;&lt;/a&gt;
+
+---
+class: inverse, middle, center
+
+# 讓我們來看看R的擴充套件
+
+---
+
+# R packages 套件列表
+
+目前R共有 __16573__ 個套件在CRAN套件庫
+
+- [按照套件名稱排序的列表](https://cran.r-project.org/web/packages/available_packages_by_name.html)
+- [按照主題分類的套件列表](https://cran.r-project.org/web/views/)
+    - [化學計量學與計算物理學 Chemometrics and Computational Physics](https://cran.r-project.org/web/views/ChemPhys.html)
+    - [水文學 Hydrology](https://cran.r-project.org/web/views/Hydrology.html)
+    - [空間分析 Analysis of Spatial Data](https://cran.r-project.org/web/views/Spatial.html)
+    - [時空資料分析 Spatio-Temporal](https://cran.r-project.org/web/views/SpatioTemporal.html)
+    - [時序分析 Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html)
+
+---
+
+# R地科相關應用套件
+
+- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+
+- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](http://www.unc.edu/~leesj/FETCH/GRAB/Vignettes/whyRbeam.pdf)
+
+- [Statistical Seismology Library](http://homepages.maxnet.co.nz/davidharte/SSLib/) 地震統計學
+
+- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html)
+
+- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html)
+
+- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra)
+
+- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/)
+
+---
+
+# 地震相關套件
+
+- [IRISSeismic: Classes and Methods for Seismic Data Analysis](https://cran.r-project.org/package=IRISSeismic)
+
+- [RSEIS: Seismic Time Series Analysis Tools](https://cran.r-project.org/package=RSEIS)
+
+- [eseis: Environmental Seismology Toolbox](https://cran.r-project.org/package=eseis)
+---
+
+# 特別介紹
+- Jonathan M. Lees
+- Professor, Department Chair, Department of Geological Sciences, University of North Carolina at Chapel Hill
+- [個人網頁https://leesj.sites.oasis.unc.edu/](https://leesj.sites.oasis.unc.edu/)
+- 開發的套件
+    - RSEIS:Seismic Analysis, Time Series
+    - GEOmap:Geological Mapping, GIS
+    - ProfessR:Create Exams, Grading
+    - RFOC:Focal Mechanisms, statistics on a sphere
+    - RPMG:Really Poor Man's GUI
+    - zoeppritz:scattering at an interface
+    - RTOMO:visualization of tomographic inversions 
+
+---
+
+
+---
+# R還可以...
+- 使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
+- [devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
+- [knitr](https://yihui.name/knitr/)、[rmarkdown](https://rmarkdown.rstudio.com/)建立報告、簡報、網站
+- [knitr](https://yihui.name/knitr/)、[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
+- [knitr](https://yihui.name/knitr/)、[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
+
+---
+class: center, middle
+
+# 希望大家會開始使用R語言
+
+## 從今天開始!!
+
+---
+class: center, middle
+
+# 謝謝！Thanks!
+
+&lt;https://forms.gle/HkVcAkgPG6TXMDrA9&gt;
+
+.pull-left[
+
+## 課後問卷 
+
+&lt;img src="../qr-code_survey.png" alt="QR code" width="250"/&gt;
+]
+
+.pull-right[
+
+### 填完可以...
+
+
+
+]
+
+Slides created via the R package xaringan.
+
+
+---
+
+# 歡迎加入R語言與地球科學
+
+.pull-left[
+
+## FB粉絲專頁
+
+&lt;img src="qr-code_FB_RGeoscience.png" alt="QR code" width="300"/&gt;
+]
+
+.pull-right[
+
+## Twitter
+
+&lt;img src="qr-code_Twitter_RGeoscience.png" alt="QR code" width="300"/&gt;
+
+]
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
