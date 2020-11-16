@@ -36,6 +36,17 @@ background-size: cover
 ---
 class: inverse, middle, center
 
+# 今天的簡報資料
+
+<img src="../qr-code.png" alt="QR code" width="300"/>
+
+封面照片來源Flickr：[https://flic.kr/p/gqdgEL](https://flic.kr/p/gqdgEL)
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /></a><br />封面照片係採用<a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/">創用 CC 姓名標示-相同方式分享 2.0 通用版 授權條款</a>授權.
+
+---
+class: inverse, middle, center
+
 # 我今天的目的:
 
 ## 介(吹)紹(捧)R程式語言
@@ -45,7 +56,7 @@ class: inverse, middle, center
 ---
 class: middle, center
 
-# 程式語言百百種，謂何要介紹R語言？
+# 程式語言百百種，為何要介紹R語言？
 
 --
 
@@ -53,7 +64,7 @@ class: middle, center
 
 --
 
-## 似乎地科界很少人在用這個
+## 似乎地科界很少人在用這個！
 
 ---
 
@@ -380,6 +391,7 @@ class: inverse, middle, center
 ```{r sf, fig.height=6, warning=FALSE, message=FALSE}
 library(sf)
 library(spData)
+library(ggplot2)
 ggplot(data = world) + geom_sf()
 ```
 

@@ -1,8 +1,7 @@
 # Introduction-to-R-2020Geo
 
-[Introduction to R (2019)](https://personlin.github.io/Introduction-to-R-2019TGA/)
-[Introduction to R (2018)](https://personlin.github.io/Introduction-to-R-2018geo/)
-
+- [Introduction to R (2019)](https://personlin.github.io/Introduction-to-R-2019TGA/)
+- [Introduction to R (2018)](https://personlin.github.io/Introduction-to-R-2018geo/)
 
 # Sponsor 主辦單位
  

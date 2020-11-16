@@ -4,14 +4,11 @@
     <title>中華民國地球物理學會與中華民國地質學會109年年會暨學術研討會-R程式語言介紹</title>
     <meta charset="utf-8" />
     <meta name="author" content="林柏伸" />
-    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-    <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
-    <script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
     <script src="libs/jquery-1.12.4/jquery.min.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding-0.16/datatables.js"></script>
+    <script src="libs/datatables-binding-0.15/datatables.js"></script>
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
     <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -51,6 +48,17 @@ background-size: cover
 ---
 class: inverse, middle, center
 
+# 今天的簡報資料
+
+&lt;img src="../qr-code.png" alt="QR code" width="300"/&gt;
+
+封面照片來源Flickr：[https://flic.kr/p/gqdgEL](https://flic.kr/p/gqdgEL)
+
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;&lt;img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/2.0/88x31.png" /&gt;&lt;/a&gt;&lt;br /&gt;封面照片係採用&lt;a rel="license" href="http://creativecommons.org/licenses/by-sa/2.0/"&gt;創用 CC 姓名標示-相同方式分享 2.0 通用版 授權條款&lt;/a&gt;授權.
+
+---
+class: inverse, middle, center
+
 # 我今天的目的:
 
 ## 介(吹)紹(捧)R程式語言
@@ -60,7 +68,7 @@ class: inverse, middle, center
 ---
 class: middle, center
 
-# 程式語言百百種，謂何要介紹R語言？
+# 程式語言百百種，為何要介紹R語言？
 
 --
 
@@ -68,7 +76,7 @@ class: middle, center
 
 --
 
-## 似乎地科界很少人在用這個
+## 似乎地科界很少人在用這個！
 
 ---
 
@@ -301,8 +309,7 @@ rnorm(10)
 ```
 
 ```
-##  [1]  1.17900238 -0.21916366 -0.10085331  1.08202155 -0.02914217 -0.32898646  0.82463579  0.39771706 -0.92299256
-## [10]  0.15927970
+##  [1]  1.40142863 -1.04728183  0.08991986  2.43949004  1.29669855  0.96706167  2.68274381 -1.29665704 -0.50636490 -0.71618094
 ```
 
 ---
@@ -466,8 +473,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-7670dd79ca5aeab15e4a" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7670dd79ca5aeab15e4a">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-22fdcee284a77061b51c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-22fdcee284a77061b51c">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse, middle, center
@@ -482,6 +489,7 @@ class: inverse, middle, center
 ```r
 library(sf)
 library(spData)
+library(ggplot2)
 ggplot(data = world) + geom_sf()
 ```
 
@@ -509,8 +517,8 @@ library(leaflet)
 leaflet() %&gt;% addTiles() %&gt;% setView(121.560642, 25.043826, zoom = 17)
 ```
 
-<div id="htmlwidget-2ae629e7119335aca061" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2ae629e7119335aca061">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[25.043826,121.560642],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2dd9bcba3af8137ffed9" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2dd9bcba3af8137ffed9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[25.043826,121.560642],17,[]]},"evals":[],"jsHooks":[]}</script>
 
 ---
 
@@ -595,7 +603,6 @@ Slides created via the R package xaringan.
 &lt;img src="qr-code_Twitter_RGeoscience.png" alt="QR code" width="300"/&gt;
 
 ]
-
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
