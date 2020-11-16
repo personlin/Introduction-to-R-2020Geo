@@ -8,6 +8,22 @@
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
     <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+    <script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
+    <script src="libs/jquery-1.12.4/jquery.min.js"></script>
+    <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="libs/datatables-binding-0.16/datatables.js"></script>
+    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+    <link href="libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-1.3.1/leaflet.js"></script>
+    <link href="libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+    <script src="libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding-2.0.3/leaflet.js"></script>
     <link rel="stylesheet" href="zh-CN.css" type="text/css" />
   </head>
   <body>
@@ -98,13 +114,27 @@ background-size: cover
 
 ---
 
-# USGS也用R
+# 哪些研究單位使用R？
+
+.pull-left[
+USGS使用R
 
 - [USGS-R 社群網頁](https://owi.usgs.gov/R/)
 - [USGS-R Github](https://github.com/USGS-R)
 
 &lt;a href="https://owi.usgs.gov/R/"&gt;&lt;img src="https://owi.usgs.gov/R/img/usgs-r-logo.png"&gt;&lt;/a&gt;
+]
 
+.pull-right[
+&lt;a href="https://www.nhs.uk/"&gt;NHS&lt;/a&gt;使用R
+
+- [NHS-R 社群網頁](https://nhsrcommunity.com/)
+
+&lt;a href="https://nhsrcommunity.com/"&gt;&lt;img src="https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png"&gt;&lt;/a&gt;
+]
+
+
+]
 
 ---
 
@@ -123,10 +153,17 @@ background-size: cover
 # 如何學習R
 
 - [Yongfu's Blog-我的R學習歷程](https://yongfu.name/2018/01/31/RlearningPath.html)
+
 - [長庚大學資訊管理學系-曾意儒-資料科學與R語言](https://yijutseng.github.io/DataScienceRBook/)
+
+- [國立臺北大學統計學系-吳漢銘-R軟體教學/R語言程式設計](http://www.hmwu.idv.tw/index.php/r-software)
+
 - [郭耀仁- 輕鬆學習R語言](https://yaojenkuo.gitbooks.io/learn-r-the-easy-way/content/)
+
 - [R語言翻轉教室-全中文R語言互動式教材](https://datascienceandr.org/index.html)
+
 - [R Class for Seismologists](http://mazamascience.com/Classes/IRIS_2015/)
+
 - [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
 
 ---
@@ -199,6 +236,7 @@ class: inverse, middle, center
 - [RSEIS: Seismic Time Series Analysis Tools](https://cran.r-project.org/package=RSEIS)
 
 - [eseis: Environmental Seismology Toolbox](https://cran.r-project.org/package=eseis)
+
 ---
 
 # 特別介紹
@@ -216,15 +254,281 @@ class: inverse, middle, center
 
 ---
 
+# 使用R進行GIS分析
+
+使用R進行GIS分析可參考電子書：
+
+- [Geocomputation with R](https://bookdown.org/robinlovelace/geocompr/)
+
+- [Geodesic geometry](https://mgimond.github.io/Spatial/)
+
+[r-spatial.org](https://www.r-spatial.org/) is a website and blog for those interested in using R to analyse spatial or spatio-temporal data.
+
+---
+
+# R的語法
+
+隨機取常態分佈N(0,1)的10個數。
+
+```r
+rnorm(10)
+```
+
+```
+##  [1] -0.45298082  0.31250483  0.04816871  1.98149699  1.33718538  1.43515991  0.98538961 -0.18308424 -0.41574732
+## [10]  0.59337153
+```
+
+---
+
+# R內建的範例資料
+
+鳶尾花的資料集
+
+
+```r
+data(iris) #載入資料
+head(iris) #查看最前面6行資料
+```
+
+```
+##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+```
+
+---
+
+# R繪圖
+
+隨機取常態分佈N(0,1)的1000個數，然後畫直方圖(histogram)。
+
+
+```r
+x &lt;- rnorm(1000,0,1)
+hist(x)
+```
+
+![](R-Introduction_files/figure-html/hist-1.svg)&lt;!-- --&gt;
+
+---
+
+# R繪圖
+
+使用內建的cars資料集繪圖
+
+
+```r
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+```
+
+![](R-Introduction_files/figure-html/cars-plot1-1.svg)&lt;!-- --&gt;
+
+---
+
+# R繪圖
+
+加上一條回歸線
+
+
+```r
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+fit = lm(dist ~ 1 + speed, data = cars)   # simple regression
+abline(fit, lwd = 2)                      # add a regression line
+```
+
+![](R-Introduction_files/figure-html/cars-plot2-1.svg)&lt;!-- --&gt;
+
+---
+
+# R繪圖
+
+用R畫鳶尾花的數據集(多變量)
+
+```r
+plot(iris) #畫圖
+```
+
+![](R-Introduction_files/figure-html/iris-plot-1.svg)&lt;!-- --&gt;
+
+---
+class: inverse, middle, center
+
+# 來產製表格
+
+
+---
+
+# 表格
+
+
+```r
+knitr::kable(head(iris), format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+---
+
+# 動態表格
+
+
+```r
+DT::datatable(
+  head(iris, 10),
+  fillContainer = FALSE, options = list(pageLength = 6)
+)
+```
+
+<div id="htmlwidget-6d603ad119a9e509f4a8" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6d603ad119a9e509f4a8">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+
+---
+class: inverse, middle, center
+
+# 來畫地圖
+
+---
+
+# 畫世界地圖
+
+
+```r
+library(sf)
+library(spData)
+ggplot(data = world) + geom_sf()
+```
+
+![](R-Introduction_files/figure-html/sf-1.png)&lt;!-- --&gt;
+
+---
+
+# 使用google底圖
+
+```r
+library(ggmap)
+gm = get_map(location=c(121.25,24.9,121.8,25.3))
+ggmap(gm)
+```
+
+![](R-Introduction_files/figure-html/ggmap-1.png)&lt;!-- --&gt;
+
+---
+
+# 互動式地圖
+
+
+```r
+library(leaflet)
+leaflet() %&gt;% addTiles() %&gt;% setView(121.560642, 25.043826, zoom = 17)
+```
+
+<div id="htmlwidget-fd8e2a7f055f1976dc0d" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fd8e2a7f055f1976dc0d">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[25.043826,121.560642],17,[]]},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# 用R Markdown來產製你的分析成果
+
+&lt;a href="https://rmarkdown.rstudio.com/"&gt;&lt;img src="https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png" width="120" height="119"&gt;&lt;/a&gt;
+
+R Markdown = R + Markdown
+
+因為HTML有點太複雜了，所以誕生了Markdown，讓文件撰寫更容易。R內含一個叫"sweave"的系統(使用[LaTeX](https://zh.wikipedia.org/zh-tw/LaTeX)排版系統)，可以產生動態文件。後來[謝益輝博士](https://yihui.org/)開發了[knitr](https://yihui.org/knitr/)這個套件，讓R產生動態文件的方便性大增，可以把R程式碼跟文件完美的結合在一起。
+
+---
+
+# R Markdown運作原理
+
+Rmd -&gt; 經過knitr套件編譯 -&gt; md -&gt; 再經過萬能[pandoc](https://pandoc.org/)編譯 -&gt; 變成你要的文件格式
+
+![](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+
+---
+
+# R Markdown支援的格式
+
+[RStudio Formats](https://rmarkdown.rstudio.com/formats.html)
+
+&lt;img src="05_rmarkdown_formats.jpg" width="700px" /&gt;
 
 ---
 # R還可以...
-- 使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
-- [devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
-- [knitr](https://yihui.name/knitr/)、[rmarkdown](https://rmarkdown.rstudio.com/)建立報告、簡報、網站
-- [knitr](https://yihui.name/knitr/)、[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
-- [knitr](https://yihui.name/knitr/)、[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
 
+.pull-left[
+- &lt;img src="https://github.com/rstudio/shiny/raw/master/man/figures/logo.png" width="100"&gt;使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
+
+- &lt;img src="https://devtools.r-lib.org/reference/figures/logo.svg"  width="100"&gt;[devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
+
+- &lt;img src="https://bookdown.org/yihui/bookdown/images/logo.png" width="100"&gt;[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
+]
+
+.pull-right[
+- &lt;img src="https://github.com/ismayc/thesisdown/raw/master/man/figures/thesisdown_hex.png" width="100"&gt; [thesisdown](https://github.com/ismayc/thesisdown)寫學位論文
+
+- &lt;img src="https://bookdown.org/yihui/blogdown/images/logo.png" width="100"&gt;[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
+
+]
 ---
 class: center, middle
 
@@ -239,20 +543,10 @@ class: center, middle
 
 &lt;https://forms.gle/HkVcAkgPG6TXMDrA9&gt;
 
-.pull-left[
-
 ## 課後問卷 
 
 &lt;img src="../qr-code_survey.png" alt="QR code" width="250"/&gt;
-]
 
-.pull-right[
-
-### 填完可以...
-
-
-
-]
 
 Slides created via the R package xaringan.
 

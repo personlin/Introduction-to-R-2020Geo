@@ -99,13 +99,27 @@ background-size: cover
 
 ---
 
-# USGS也用R
+# 哪些研究單位使用R？
+
+.pull-left[
+USGS使用R
 
 - [USGS-R 社群網頁](https://owi.usgs.gov/R/)
 - [USGS-R Github](https://github.com/USGS-R)
 
 <a href="https://owi.usgs.gov/R/"><img src="https://owi.usgs.gov/R/img/usgs-r-logo.png"></a>
+]
 
+.pull-right[
+<a href="https://www.nhs.uk/">NHS</a>使用R
+
+- [NHS-R 社群網頁](https://nhsrcommunity.com/)
+
+<a href="https://nhsrcommunity.com/"><img src="https://nhsrcommunity.com/wp-content/uploads/2018/02/logo.png"></a>
+]
+
+
+]
 
 ---
 
@@ -124,10 +138,17 @@ background-size: cover
 # 如何學習R
 
 - [Yongfu's Blog-我的R學習歷程](https://yongfu.name/2018/01/31/RlearningPath.html)
+
 - [長庚大學資訊管理學系-曾意儒-資料科學與R語言](https://yijutseng.github.io/DataScienceRBook/)
+
+- [國立臺北大學統計學系-吳漢銘-R軟體教學/R語言程式設計](http://www.hmwu.idv.tw/index.php/r-software)
+
 - [郭耀仁- 輕鬆學習R語言](https://yaojenkuo.gitbooks.io/learn-r-the-easy-way/content/)
+
 - [R語言翻轉教室-全中文R語言互動式教材](https://datascienceandr.org/index.html)
+
 - [R Class for Seismologists](http://mazamascience.com/Classes/IRIS_2015/)
+
 - [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
 
 ---
@@ -200,6 +221,7 @@ class: inverse, middle, center
 - [RSEIS: Seismic Time Series Analysis Tools](https://cran.r-project.org/package=RSEIS)
 
 - [eseis: Environmental Seismology Toolbox](https://cran.r-project.org/package=eseis)
+
 ---
 
 # 特別介紹
@@ -217,15 +239,187 @@ class: inverse, middle, center
 
 ---
 
+# 使用R進行GIS分析
+
+使用R進行GIS分析可參考電子書：
+
+- [Geocomputation with R](https://bookdown.org/robinlovelace/geocompr/)
+
+- [Geodesic geometry](https://mgimond.github.io/Spatial/)
+
+[r-spatial.org](https://www.r-spatial.org/) is a website and blog for those interested in using R to analyse spatial or spatio-temporal data.
+
+---
+
+# R的語法
+
+隨機取常態分佈N(0,1)的10個數。
+```{r}
+rnorm(10)
+```
+
+---
+
+# R內建的範例資料
+
+鳶尾花的資料集
+
+```{r iris}
+data(iris) #載入資料
+head(iris) #查看最前面6行資料
+```
+
+---
+
+# R繪圖
+
+隨機取常態分佈N(0,1)的1000個數，然後畫直方圖(histogram)。
+
+```{r hist, fig.height=4, dev='svg'}
+x <- rnorm(1000,0,1)
+hist(x)
+```
+
+---
+
+# R繪圖
+
+使用內建的cars資料集繪圖
+
+```{r cars-plot1, fig.height=4, dev='svg'}
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+
+```
+
+---
+
+# R繪圖
+
+加上一條回歸線
+
+```{r cars-plot2, fig.height=4, dev='svg'}
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+fit = lm(dist ~ 1 + speed, data = cars)   # simple regression
+abline(fit, lwd = 2)                      # add a regression line
+```
+
+---
+
+# R繪圖
+
+用R畫鳶尾花的數據集(多變量)
+```{r iris-plot, fig.height=4, dev='svg'}
+plot(iris) #畫圖
+```
+
+---
+class: inverse, middle, center
+
+# 來產製表格
+
+
+---
+
+# 表格
+
+```{r}
+
+knitr::kable(head(iris), format = 'html')
+
+```
+
+
+---
+
+# 動態表格
+
+```{r}
+DT::datatable(
+  head(iris, 10),
+  fillContainer = FALSE, options = list(pageLength = 6)
+)
+
+```
+
+---
+class: inverse, middle, center
+
+# 來畫地圖
+
+---
+
+# 畫世界地圖
+
+```{r sf, fig.height=6, warning=FALSE, message=FALSE}
+library(sf)
+library(spData)
+ggplot(data = world) + geom_sf()
+```
+
+---
+
+# 使用google底圖
+```{r ggmap, fig.height=6, warning=FALSE, message=FALSE}
+library(ggmap)
+gm = get_map(location=c(121.25,24.9,121.8,25.3))
+ggmap(gm)
+```
+
+---
+
+# 互動式地圖
+
+```{r out.width='100%', fig.height=6, eval=require('leaflet'), warning=FALSE, message=FALSE}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(121.560642, 25.043826, zoom = 17)
+```
+
+---
+
+# 用R Markdown來產製你的分析成果
+
+<a href="https://rmarkdown.rstudio.com/"><img src="https://bookdown.org/yihui/rmarkdown/images/hex-rmarkdown.png" width="120" height="119"></a>
+
+R Markdown = R + Markdown
+
+因為HTML有點太複雜了，所以誕生了Markdown，讓文件撰寫更容易。R內含一個叫"sweave"的系統(使用[LaTeX](https://zh.wikipedia.org/zh-tw/LaTeX)排版系統)，可以產生動態文件。後來[謝益輝博士](https://yihui.org/)開發了[knitr](https://yihui.org/knitr/)這個套件，讓R產生動態文件的方便性大增，可以把R程式碼跟文件完美的結合在一起。
+
+---
+
+# R Markdown運作原理
+
+Rmd -> 經過knitr套件編譯 -> md -> 再經過萬能[pandoc](https://pandoc.org/)編譯 -> 變成你要的文件格式
+
+![](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/b739c/lesson-images/rmarkdownflow.png)
+
+---
+
+# R Markdown支援的格式
+
+[RStudio Formats](https://rmarkdown.rstudio.com/formats.html)
+
+```{r, echo=FALSE, out.width = "700px", dpi=300}
+knitr::include_graphics('05_rmarkdown_formats.jpg')
+```
 
 ---
 # R還可以...
-- 使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
-- [devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
-- [knitr](https://yihui.name/knitr/)、[rmarkdown](https://rmarkdown.rstudio.com/)建立報告、簡報、網站
-- [knitr](https://yihui.name/knitr/)、[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
-- [knitr](https://yihui.name/knitr/)、[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
 
+.pull-left[
+- <img src="https://github.com/rstudio/shiny/raw/master/man/figures/logo.png" width="100">使用[Shiny](https://shiny.rstudio.com/)建立數據的[互動式圖表](https://shiny.rstudio.com/gallery/): [Nepal quake](https://asheshwor.shinyapps.io/np-quake/)
+
+- <img src="https://devtools.r-lib.org/reference/figures/logo.svg"  width="100">[devtools](https://www.rstudio.com/products/rpackages/devtools/)開發R語言套件pacakge: [GMPEhaz](https://github.com/personlin/GMPEhaz)
+
+- <img src="https://bookdown.org/yihui/bookdown/images/logo.png" width="100">[bookdown](https://bookdown.org/yihui/bookdown/)撰寫電子書
+]
+
+.pull-right[
+- <img src="https://github.com/ismayc/thesisdown/raw/master/man/figures/thesisdown_hex.png" width="100"> [thesisdown](https://github.com/ismayc/thesisdown)寫學位論文
+
+- <img src="https://bookdown.org/yihui/blogdown/images/logo.png" width="100">[blogdown](https://bookdown.org/yihui/blogdown/)建立個人blog:[Prof. Yi-Ju Tseng](https://yjtseng.info/)
+
+]
 ---
 class: center, middle
 
@@ -240,20 +434,10 @@ class: center, middle
 
 <https://forms.gle/HkVcAkgPG6TXMDrA9>
 
-.pull-left[
-
 ## 課後問卷 
 
 <img src="../qr-code_survey.png" alt="QR code" width="250"/>
-]
 
-.pull-right[
-
-### 填完可以...
-
-
-
-]
 
 Slides created via the R package xaringan.
 
