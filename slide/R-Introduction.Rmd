@@ -32,6 +32,29 @@ background-size: cover
 <img src="http://www.cgs.org.tw/image/logo.jpg" alt="CGS logo" height="65" style="background-color:white;" />
 
 .large[林柏伸 | 財團法人中興工程顧問社防災科技研究中心 | 17 Nov 2020]
+
+---
+class: inverse, middle, center
+
+# 我今天的目的:
+
+## 介(吹)紹(捧)R程式語言
+
+.center[![](https://www.r-project.org/Rlogo.png)]
+
+---
+class: middle, center
+
+# 程式語言百百種，謂何要介紹R語言？
+
+--
+
+## 我覺得很好用！
+
+--
+
+## 似乎地科界很少人在用這個
+
 ---
 
 # 學習R的理由
@@ -70,32 +93,37 @@ background-size: cover
 
 .pull-left[
 
-#### TIOBE (Top 9!)
-
-<a href="https://www.tiobe.com/tiobe-index/"><img src="Tiobe_language_rank_202011.jpg" alt="Tiobe" height="300"/></a>
-
-]
-
-
-.pull-right[
-
 #### IEEE Spectrum (Top 6!)
 
 ![IEEE Spectrum](IEEE_Spectrum_top_language_2020.jpeg)
 
 ]
+
+.pull-right[
+
+#### TIOBE (Top 9!)
+
+<a href="https://www.tiobe.com/tiobe-index/"><img src="Tiobe_language_rank_202011.jpg" alt="Tiobe" height="300"/></a>
+
+]
 ---
 
 # R的相關網頁
-- [官方網頁https://www.r-project.org/](https://www.r-project.org/) 直接google "r"第一個結果就是!
-- [RStudio](https://www.rstudio.com/) 寫R必備的IDE工具，找不到更好的了！
+
+- R語言的官方網頁[https://www.r-project.org/](https://www.r-project.org/) 直接google "r"第一個結果就是!
+
+- [RStudio](https://www.rstudio.com/) 由RStudio公司開發，是寫R必備的IDE工具，找不到更好的了！
     - [rmarkdown](http://rmarkdown.rstudio.com/) R寫文件
     - [shiny](http://shiny.rstudio.com/) RStudio開發出來的架構，可以用R開發網頁應用。
     - [Rpubs](https://rpubs.com/) 用R寫出來的文件可以丟到上面分享。
+
 - [RDocumentation](http://www.rdocumentation.org/) 搜尋R package & function 的好地方！！
-- [R Weekly](https://rweekly.org/) R週報，吸收R新知的地方！(__推推！__)
+
+- [R Weekly](https://rweekly.org/) R週報，是我吸收R新知的地方！(__推推！__)
+
 - [R-blogger](https://www.r-bloggers.com/) 另一個吸收R新知的地方
-- [Awesome R](https://awesome-r.com/) A curated list of awesome R packages and tools.
+
+- [Awesome R](https://github.com/qinwf/awesome-R) A curated list of awesome R packages and tools. [中文版](https://asmcn.icopy.site/awesome/awesome-R/)
 
 ---
 
@@ -119,8 +147,6 @@ USGS使用R
 ]
 
 
-]
-
 ---
 
 # 台灣的R社群
@@ -135,7 +161,7 @@ USGS使用R
 
 ---
 
-# 如何學習R
+# 如何入門學習R
 
 - [Yongfu's Blog-我的R學習歷程](https://yongfu.name/2018/01/31/RlearningPath.html)
 
