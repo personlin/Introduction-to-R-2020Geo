@@ -38,7 +38,7 @@ class: inverse, middle, center
 
 # 今天的簡報資料
 
-<img src="../qr-code.png" alt="QR code" width="300"/>
+<img src="qr-code.png" alt="QR code" width="300"/>
 
 封面照片來源Flickr：[https://flic.kr/p/gqdgEL](https://flic.kr/p/gqdgEL)
 
@@ -566,7 +566,7 @@ class: center, middle
 
 ## 課後問卷 
 
-<img src="../qr-code_survey.png" alt="QR code" width="250"/>
+<img src="qr-code_survey.png" alt="QR code" width="250"/>
 
 
 Slides created via the R package xaringan.
