@@ -188,6 +188,9 @@ USGS使用R
 
 - [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
 
+- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+
+
 ---
 
 # 學習R的管道
@@ -221,7 +224,7 @@ class: inverse, middle, center
 
 # R packages 套件列表
 
-目前R共有 __16573__ 個套件在CRAN套件庫
+目前R共有 __16573__ 個套件在CRAN套件庫，因為上架CRAN要經過審核，所以還有很多未上架CRAN的套件在Github上。
 
 - [按照套件名稱排序的列表](https://cran.r-project.org/web/packages/available_packages_by_name.html)
 - [按照主題分類的套件列表](https://cran.r-project.org/web/views/)
@@ -235,19 +238,19 @@ class: inverse, middle, center
 
 # R地科相關應用套件
 
-- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](https://leesj.sites.oasis.unc.edu/FETCH/GRAB/Vignettes/whyRbeam.pdf)
 
-- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](http://www.unc.edu/~leesj/FETCH/GRAB/Vignettes/whyRbeam.pdf)
+- [Statistical Seismology Library](http://www.statsresearch.co.nz/dsh/sslib/) 地震統計學
 
-- [Statistical Seismology Library](http://homepages.maxnet.co.nz/davidharte/SSLib/) 地震統計學
+- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html) ETAS分析套件
 
-- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html)
+- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html) 地震規模次數統計
 
-- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html)
+- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra) 計算地震反應譜
 
-- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra)
+- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/) 地球化學資料工具
 
-- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/)
+- [sen2r](https://sen2r.ranghetti.info/) 搜尋、下載、處理Sentinel-2的資料
 
 ---
 
@@ -284,7 +287,15 @@ class: inverse, middle, center
 
 - [Geodesic geometry](https://mgimond.github.io/Spatial/)
 
+- [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/)
+
 [r-spatial.org](https://www.r-spatial.org/) is a website and blog for those interested in using R to analyse spatial or spatio-temporal data.
+
+- [RQGIS3](https://github.com/r-spatial/RQGIS3) R連結QGIS
+
+- [mapview](https://r-spatial.github.io/mapview/) 瀏覽空間資料
+
+- [gstat](https://r-spatial.github.io/gstat/index.html) 空間統計
 
 ---
 
@@ -410,7 +421,88 @@ ggmap(gm)
 
 ```{r out.width='100%', fig.height=6, eval=require('leaflet'), warning=FALSE, message=FALSE}
 library(leaflet)
-leaflet() %>% addTiles() %>% setView(121.560642, 25.043826, zoom = 17)
+leaflet() %>% addTiles() %>% setView(121.56, 25.044, zoom = 17)
+```
+
+---
+
+# 數值地形
+
+先來下載個數值地形資料吧！
+```{r raster, warning=FALSE, message=FALSE}
+library(raster)
+
+# get DTM data using raster getData function
+srtm1 <- getData("SRTM", lat = 25.0169, lon = 121.8757, 
+                 download = TRUE)
+srtm2 <- getData("SRTM", lat = 24.0169, lon = 121.8757, 
+                 download = TRUE)
+
+```
+
+---
+
+# 數值地形資料處理
+
+裁切一下數值地形
+```{r cropDTM, warning=FALSE, message=FALSE}
+# merge DTM
+dem.raster <- merge(srtm1, srtm2, tolerance=0.01)
+# crop DTM data to Taipei Basin area
+lx <- 121.53
+ly <- 25.05
+r <- 0.2
+ext <- extent(lx-r, lx+r, ly-r, ly+r)
+city <- crop(dem.raster, ext)
+# Convert the raster to elevation matrix
+elmat <- matrix(extract(city, extent(city)),
+                nrow=nrow(city),
+                ncol=ncol(city))
+```
+
+---
+
+# 使用Rayshader套件畫陰影圖
+
+```{r rayshader, fig.height=4, warning=FALSE, message=FALSE}
+library(rayshader)
+library(magrittr)
+z <- 10
+model <- elmat %>%
+  sphere_shade(texture = "imhof2", sunangle = 45) %>%
+  add_shadow(ambient_shade(elmat, zscale=z, 
+                          anglebreaks = seq(65, 65, 1))) %>%
+  add_shadow(ray_shade(elmat, zscale=z, lambert=T, 
+                       anglebreaks = seq(65, 65, 1)))
+```
+
+---
+
+# 使用Rayshader套件畫陰影圖
+
+```{r rayshader plot, fig.height=6, warning=FALSE, message=FALSE}
+model %>%
+  plot_map()
+
+```
+
+---
+
+# 換個顏色
+```{r rayshader green, fig.height=4, warning=FALSE, message=FALSE}
+model.green <- elmat %>%
+  sphere_shade() %>%
+  add_water(detect_water(elmat, cutoff=0.8, zscale=1.0)) %>%
+  add_shadow(lamb_shade(elmat)) %>% add_shadow(ambient_shade(elmat))
+```
+
+---
+
+# 綠色
+
+```{r plot green, fig.height=6, warning=FALSE, message=FALSE}
+model.green %>%
+  plot_map()
 ```
 
 ---

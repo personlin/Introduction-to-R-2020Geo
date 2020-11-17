@@ -4,11 +4,14 @@
     <title>中華民國地球物理學會與中華民國地質學會109年年會暨學術研討會-R程式語言介紹</title>
     <meta charset="utf-8" />
     <meta name="author" content="林柏伸" />
+    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
-    <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+    <link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+    <script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+    <script src="libs/htmlwidgets-1.5.2/htmlwidgets.js"></script>
     <script src="libs/jquery-1.12.4/jquery.min.js"></script>
     <link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-    <script src="libs/datatables-binding-0.15/datatables.js"></script>
+    <script src="libs/datatables-binding-0.16/datatables.js"></script>
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
     <script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
@@ -200,6 +203,9 @@ USGS使用R
 
 - [Earth Analytics Course: Learn Data Science](https://www.earthdatascience.org/courses/earth-analytics/)
 
+- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+
+
 ---
 
 # 學習R的管道
@@ -233,7 +239,7 @@ class: inverse, middle, center
 
 # R packages 套件列表
 
-目前R共有 __16573__ 個套件在CRAN套件庫
+目前R共有 __16573__ 個套件在CRAN套件庫，因為上架CRAN要經過審核，所以還有很多未上架CRAN的套件在Github上。
 
 - [按照套件名稱排序的列表](https://cran.r-project.org/web/packages/available_packages_by_name.html)
 - [按照主題分類的套件列表](https://cran.r-project.org/web/views/)
@@ -247,19 +253,19 @@ class: inverse, middle, center
 
 # R地科相關應用套件
 
-- [Introduction to R for the Geosciences](http://www.fromthebottomoftheheap.net/teaching/courses/mcmaster_2013/mcmaster_2013.html)
+- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](https://leesj.sites.oasis.unc.edu/FETCH/GRAB/Vignettes/whyRbeam.pdf)
 
-- [使用R來做地震分析 Convert to R for Seismic Analysis.pdf](http://www.unc.edu/~leesj/FETCH/GRAB/Vignettes/whyRbeam.pdf)
+- [Statistical Seismology Library](http://www.statsresearch.co.nz/dsh/sslib/) 地震統計學
 
-- [Statistical Seismology Library](http://homepages.maxnet.co.nz/davidharte/SSLib/) 地震統計學
+- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html) ETAS分析套件
 
-- [ETAS (Modeling earthquake data using Epidemic Type Aftershock Sequence model](http://cran.r-project.org/web/packages/ETAS/index.html)
+- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html) 地震規模次數統計
 
-- [GRTo: Tools for the analysis of Gutenberg-Richter distributions of earthquake magnitudes](http://cran.r-project.org/web/packages/GRTo/index.html)
+- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra) 計算地震反應譜
 
-- [RCTC: “R” Package for Computation of Earthquake Ground-Motion Response Spectra](https://peer.berkeley.edu/news/new-peer-report-201709-%E2%80%9Cr%E2%80%9D-package-computation-earthquake-ground-motion-response-spectra)
+- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/) 地球化學資料工具
 
-- [Geochemical Data Toolkit (GCDkit)](http://www.gcdkit.org/)
+- [sen2r](https://sen2r.ranghetti.info/) 搜尋、下載、處理Sentinel-2的資料
 
 ---
 
@@ -296,7 +302,15 @@ class: inverse, middle, center
 
 - [Geodesic geometry](https://mgimond.github.io/Spatial/)
 
+- [Spatial Data Science](https://keen-swartz-3146c4.netlify.app/)
+
 [r-spatial.org](https://www.r-spatial.org/) is a website and blog for those interested in using R to analyse spatial or spatio-temporal data.
+
+- [RQGIS3](https://github.com/r-spatial/RQGIS3) R連結QGIS
+
+- [mapview](https://r-spatial.github.io/mapview/) 瀏覽空間資料
+
+- [gstat](https://r-spatial.github.io/gstat/index.html) 空間統計
 
 ---
 
@@ -309,7 +323,8 @@ rnorm(10)
 ```
 
 ```
-##  [1]  1.40142863 -1.04728183  0.08991986  2.43949004  1.29669855  0.96706167  2.68274381 -1.29665704 -0.50636490 -0.71618094
+##  [1] -0.01949353  1.09233693 -0.27385497  1.44298701 -1.58836404  1.34559268 -1.08499513 -1.47121798  1.11274912
+## [10] -0.78937179
 ```
 
 ---
@@ -473,8 +488,8 @@ DT::datatable(
 )
 ```
 
-<div id="htmlwidget-22fdcee284a77061b51c" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-22fdcee284a77061b51c">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-fe745d4248c2e4ab6568" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fe745d4248c2e4ab6568">{"x":{"filter":"none","fillContainer":false,"data":[["1","2","3","4","5","6","7","8","9","10"],[5.1,4.9,4.7,4.6,5,5.4,4.6,5,4.4,4.9],[3.5,3,3.2,3.1,3.6,3.9,3.4,3.4,2.9,3.1],[1.4,1.4,1.3,1.5,1.4,1.7,1.4,1.5,1.4,1.5],[0.2,0.2,0.2,0.2,0.2,0.4,0.3,0.2,0.2,0.1],["setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa","setosa"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Sepal.Length<\/th>\n      <th>Sepal.Width<\/th>\n      <th>Petal.Length<\/th>\n      <th>Petal.Width<\/th>\n      <th>Species<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":6,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[6,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 
 ---
 class: inverse, middle, center
@@ -514,11 +529,100 @@ ggmap(gm)
 
 ```r
 library(leaflet)
-leaflet() %&gt;% addTiles() %&gt;% setView(121.560642, 25.043826, zoom = 17)
+leaflet() %&gt;% addTiles() %&gt;% setView(121.56, 25.044, zoom = 17)
 ```
 
-<div id="htmlwidget-2dd9bcba3af8137ffed9" style="width:100%;height:432px;" class="leaflet html-widget"></div>
-<script type="application/json" data-for="htmlwidget-2dd9bcba3af8137ffed9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[25.043826,121.560642],17,[]]},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9713fa61c3ff2523d4ec" style="width:100%;height:432px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9713fa61c3ff2523d4ec">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[25.044,121.56],17,[]]},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# 數值地形
+
+先來下載個數值地形資料吧！
+
+```r
+library(raster)
+
+# get DTM data using raster getData function
+srtm1 &lt;- getData("SRTM", lat = 25.0169, lon = 121.8757, 
+                 download = TRUE)
+srtm2 &lt;- getData("SRTM", lat = 24.0169, lon = 121.8757, 
+                 download = TRUE)
+```
+
+---
+
+# 數值地形資料處理
+
+裁切一下數值地形
+
+```r
+# merge DTM
+dem.raster &lt;- merge(srtm1, srtm2, tolerance=0.01)
+# crop DTM data to Taipei Basin area
+lx &lt;- 121.53
+ly &lt;- 25.05
+r &lt;- 0.2
+ext &lt;- extent(lx-r, lx+r, ly-r, ly+r)
+city &lt;- crop(dem.raster, ext)
+# Convert the raster to elevation matrix
+elmat &lt;- matrix(extract(city, extent(city)),
+                nrow=nrow(city),
+                ncol=ncol(city))
+```
+
+---
+
+# 使用Rayshader套件畫陰影圖
+
+
+```r
+library(rayshader)
+library(magrittr)
+z &lt;- 10
+model &lt;- elmat %&gt;%
+  sphere_shade(texture = "imhof2", sunangle = 45) %&gt;%
+  add_shadow(ambient_shade(elmat, zscale=z, 
+                          anglebreaks = seq(65, 65, 1))) %&gt;%
+  add_shadow(ray_shade(elmat, zscale=z, lambert=T, 
+                       anglebreaks = seq(65, 65, 1)))
+```
+
+---
+
+# 使用Rayshader套件畫陰影圖
+
+
+```r
+model %&gt;%
+  plot_map()
+```
+
+![](R-Introduction_files/figure-html/rayshader plot-1.png)&lt;!-- --&gt;
+
+---
+
+# 換個顏色
+
+```r
+model.green &lt;- elmat %&gt;%
+  sphere_shade() %&gt;%
+  add_water(detect_water(elmat, cutoff=0.8, zscale=1.0)) %&gt;%
+  add_shadow(lamb_shade(elmat)) %&gt;% add_shadow(ambient_shade(elmat))
+```
+
+---
+
+# 綠色
+
+
+```r
+model.green %&gt;%
+  plot_map()
+```
+
+![](R-Introduction_files/figure-html/plot green-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -603,6 +707,7 @@ Slides created via the R package xaringan.
 &lt;img src="qr-code_Twitter_RGeoscience.png" alt="QR code" width="300"/&gt;
 
 ]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
