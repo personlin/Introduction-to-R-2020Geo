@@ -1,6 +1,8 @@
 # Introduction-to-R-2020Geo
 
+歷年R語言介紹資料
 - [Introduction to R (2019)](https://personlin.github.io/Introduction-to-R-2019TGA/)
+
 - [Introduction to R (2018)](https://personlin.github.io/Introduction-to-R-2018geo/)
 
 # Sponsor 主辦單位
