@@ -1,6 +1,6 @@
 # Introduction-to-R-2020Geo
 
-[簡報Slide](http://www.personlin.com/introduction-r-2020)
+[簡報Slide](https://www.personlin.com/introduction-r-2020/)
 
 歷年R語言介紹資料
 - [Introduction to R (2019)](https://personlin.github.io/Introduction-to-R-2019TGA/)
